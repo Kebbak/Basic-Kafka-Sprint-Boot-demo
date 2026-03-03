@@ -11,12 +11,23 @@ This project demonstrates a simple integration between Spring Boot and Apache Ka
 - Maven
 - Kafka broker running (Docker Compose or Confluent Platform)
 
+
 ## How to Run
-1. Build the project:
+1. **Start Docker Compose containers:**
+   Navigate to the directory containing `docker-compose.yml` and run:
+   ```
+   docker compose up -d
+   ```
+   Make sure all containers (zookeeper, kafka, schema-registry, kafka-ui) are running:
+   ```
+   docker compose ps
+   ```
+
+2. **Build the project:**
    ```
    mvn clean install
    ```
-2. Start the application:
+3. **Start the application:**
    ```
    mvn spring-boot:run
    ```
@@ -24,11 +35,11 @@ This project demonstrates a simple integration between Spring Boot and Apache Ka
    ```
    java -jar target/demo-0.0.1-SNAPSHOT.jar
    ```
-3. Send a test user:
+4. **Send a test user:**
    ```
    curl -X POST http://localhost:8082/api/user \
      -H "Content-Type: application/json" \
-     -d '{"id":"1","name":"Alice","email":"alice@example.com"}'
+     -d '{"id":"1","name":"jason","email":"jason@example.com"}'
    ```
 
 ## Kafka Configuration
